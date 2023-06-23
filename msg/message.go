@@ -8,7 +8,7 @@ import (
 	"math/big"
 )
 
-type ChainId uint8
+type ChainId uint64
 type TransferType string
 type ResourceId [32]byte
 
