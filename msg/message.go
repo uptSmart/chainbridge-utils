@@ -50,7 +50,24 @@ func NewFungibleTransfer(source, dest ChainId, nonce Nonce, amount *big.Int, res
 	}
 }
 
-func NewNonFungibleTransfer(source, dest ChainId, nonce Nonce, resourceId ResourceId, tokenId *big.Int, recipient, metadata []byte) Message {
+// func NewNonFungibleTransfer(source, dest ChainId, nonce Nonce, resourceId ResourceId, tokenId *big.Int, recipient, metadata []byte) Message {
+// 	return Message{
+// 		Source:       source,
+// 		Destination:  dest,
+// 		Type:         NonFungibleTransfer,
+// 		DepositNonce: nonce,
+// 		ResourceId:   resourceId,
+// 		Payload: []interface{}{
+// 			tokenId.Bytes(),
+// 			recipient,
+// 			metadata,
+// 		},
+// 	}
+// }
+
+//xxl modify
+func NewNonFungibleTransfer(source, dest ChainId, nonce Nonce, resourceId ResourceId, metadata []byte,
+) Message {
 	return Message{
 		Source:       source,
 		Destination:  dest,
@@ -58,8 +75,6 @@ func NewNonFungibleTransfer(source, dest ChainId, nonce Nonce, resourceId Resour
 		DepositNonce: nonce,
 		ResourceId:   resourceId,
 		Payload: []interface{}{
-			tokenId.Bytes(),
-			recipient,
 			metadata,
 		},
 	}
